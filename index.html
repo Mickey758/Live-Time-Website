@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date & Time</title>
+</head>
+<body>
+    <h1>The date and time is now</h1>
+    <h2 id="time"></h2>
+    <!-- Show a warning if javascript is not enabled -->
+    <noscript>Enable javascript to see the time</noscript> 
+    <script type="text/javascript">
+        function sleep(ms) { // Function to wait
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        window.onload = async function(){ // On page load do this function
+            const time = document.getElementById("time"); // Set the h2 tag to a const, time
+            while (true){ // Do this forever
+                time.innerHTML = new Date(); // Set the inner html to the current time
+                await sleep(1000); // Wait 1 second
+            }
+        }
+    </script>
+</body>
+</html>
